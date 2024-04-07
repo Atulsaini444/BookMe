@@ -39,6 +39,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
     }
 
     rentModal.onOpen();
+    console.log("rent modal")
   }, [loginModal, rentModal, currentUser]);
 
   return ( 
