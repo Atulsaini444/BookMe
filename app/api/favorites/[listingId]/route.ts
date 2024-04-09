@@ -11,6 +11,8 @@ export async function POST(
   request: Request, 
   { params }: { params: IParams }
 ) {
+  console.log("listing id ==>")
+
   const currentUser = await getCurrentUser();
 
   if (!currentUser) {
@@ -22,6 +24,8 @@ export async function POST(
   if (!listingId || typeof listingId !== 'string') {
     throw new Error('Invalid ID');
   }
+
+
 
   let favoriteIds = [...(currentUser.favoriteIds || [])];
 
@@ -35,7 +39,6 @@ export async function POST(
       favoriteIds
     }
   });
-  console.log("user ==> ", user)
 
   return NextResponse.json(user);
 }
