@@ -23,15 +23,20 @@ const useFavorite = ({ listingId, currentUser }: IUseFavorite) => {
     return list.includes(listingId);
   }, [currentUser, listingId]);
 
+
+
   const toggleFavorite = useCallback(async (e: React.MouseEvent<HTMLDivElement>) => {
+
     e.stopPropagation();
 
     if (!currentUser) {
       return loginModal.onOpen();
     }
 
+
     try {
       let request;
+      console.log("has favourite => ", hasFavorited,listingId)
 
       if (hasFavorited) {
         request = () => axios.delete(`/api/favorites/${listingId}`);
