@@ -24,7 +24,6 @@ const UserMenu: React.FC<UserMenuProps> = ({
 
   const loginModal = useLoginModal();
   const registerModal = useRegisterModal();
-  console.log(registerModal)
   const rentModal = useRentModal();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -39,7 +38,6 @@ const UserMenu: React.FC<UserMenuProps> = ({
     }
 
     rentModal.onOpen();
-    console.log("rent modal")
   }, [loginModal, rentModal, currentUser]);
 
   return ( 

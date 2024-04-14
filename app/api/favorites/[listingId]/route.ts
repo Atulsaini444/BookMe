@@ -11,7 +11,6 @@ export async function POST(
   request: Request, 
   { params }: { params: IParams }
 ) {
-  console.log("listing id ==>")
 
   const currentUser = await getCurrentUser();
 
