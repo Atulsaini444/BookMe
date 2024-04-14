@@ -38,8 +38,6 @@ const RegisterModal= () => {
     },
   });
 
-  console.log("inside  register modal")
-
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
 
