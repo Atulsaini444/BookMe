@@ -18,14 +18,14 @@ interface ModalProps {
   secondaryActionLabel?: string;
 }
 
-const Modal: React.FC<ModalProps> = ({ 
-  isOpen, 
-  onClose, 
-  onSubmit, 
-  title, 
-  body, 
-  actionLabel, 
-  footer, 
+const Modal: React.FC<ModalProps> = ({
+  isOpen,
+  onClose,
+  onSubmit,
+  title,
+  body,
+  actionLabel,
+  footer,
   disabled,
   secondaryAction,
   secondaryActionLabel
@@ -40,7 +40,7 @@ const Modal: React.FC<ModalProps> = ({
     if (disabled) {
       return;
     }
-  
+
     setShowModal(false);
     setTimeout(() => {
       onClose();
@@ -74,8 +74,6 @@ const Modal: React.FC<ModalProps> = ({
           justify-center 
           items-center 
           flex 
-          overflow-x-hidden 
-          overflow-y-auto 
           fixed 
           inset-0 
           z-50 
@@ -91,10 +89,9 @@ const Modal: React.FC<ModalProps> = ({
           lg:w-3/6
           xl:w-2/5
           my-6
-          mx-2
+          mx-auto 
           h-full 
-          lg:h-auto
-          md:h-auto
+          md:h-5/6
           "
         >
           {/*content*/}
@@ -108,8 +105,6 @@ const Modal: React.FC<ModalProps> = ({
             <div className="
               translate
               h-full
-              lg:h-auto
-              md:h-auto
               border-0 
               rounded-lg 
               shadow-lg 
@@ -151,35 +146,37 @@ const Modal: React.FC<ModalProps> = ({
                 </div>
               </div>
               {/*body*/}
-              <div className="relative p-6 flex-auto">
-                {body}
-              </div>
-              {/*footer*/}
-              <div className="flex flex-col gap-2 p-6">
-                <div 
-                  className="
+              <div className="overflow-auto">
+                <div className="relative p-6 flex-auto">
+                  {body}
+                </div>
+                {/*footer*/}
+                <div className="flex flex-col gap-2 px-6 py-2">
+                  <div
+                    className="
                     flex 
                     flex-row 
                     items-center 
                     gap-4 
                     w-full
                   "
-                >
-                  {secondaryAction && secondaryActionLabel && (
-                    <Button 
-                      disabled={disabled} 
-                      label={secondaryActionLabel} 
-                      onClick={handleSecondaryAction}
-                      outline
-                    />  
-                  )}
-                  <Button 
-                    disabled={disabled} 
-                    label={actionLabel} 
-                    onClick={handleSubmit}
-                  />
+                  >
+                    {secondaryAction && secondaryActionLabel && (
+                      <Button
+                        disabled={disabled}
+                        label={secondaryActionLabel}
+                        onClick={handleSecondaryAction}
+                        outline
+                      />
+                    )}
+                    <Button
+                      disabled={disabled}
+                      label={actionLabel}
+                      onClick={handleSubmit}
+                    />
+                  </div>
+                  {footer}
                 </div>
-                {footer}
               </div>
             </div>
           </div>
